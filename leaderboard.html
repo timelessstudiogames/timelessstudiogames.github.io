@@ -46,6 +46,54 @@
         }
         
         
+* {
+  box-sizing: border-box;
+}
+
+.row {
+  margin-left:-5px;
+  margin-right:-5px;
+}
+  
+.column {
+  float: left;
+  width: 50%;
+  padding: 5px;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+  box-shadow:0 4px 8px 0 rgb(64, 255, 255);
+}
+
+th, td {
+  text-align: left;
+  padding: 16px;
+  color: #ffffff;
+}
+
+tr:nth-child(even) {
+  background-color: #242f41;
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other on screens that are smaller than 600 px */
+@media screen and (max-width: 1000px) {
+  .column {
+    width: 100%;
+  }
+}
+
+
         .footer {
             padding: 30px;
           width: 100%;
@@ -75,6 +123,39 @@
         
           <br>
         
+          <div class="row">
+            <div class="column">
+              <table>
+                <tr>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Time</th>
+                </tr>
+                <tr>
+                  <td>Jill</td>
+                  <td>Smith</td>
+                  <td>8.23</td>
+                </tr>
+                <tr>
+                  <td>Eve</td>
+                  <td>Jackson</td>
+                  <td>9.12</td>
+                </tr>
+                <tr>
+                  <td>Adam</td>
+                  <td>Johnson</td>
+                  <td>14.69</td>
+                </tr>
+                <tr>
+                  <td>Rhys</td>
+                  <td>Larsen</td>
+                  <td>14.90</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+            
+            <br>
         
           <div class="footer" style="font-size: 1vw; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">
             <a href="index.html"><img src="logo.png" alt="logo" style="width:10vw;"></a>
