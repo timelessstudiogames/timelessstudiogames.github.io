@@ -2,12 +2,16 @@
 <html lang="en">
 
 <head>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home page</title>
   <link rel="icon" type="image/x-icon" href="favicon.jpg">
 
+  
 
   <style>
 
@@ -46,7 +50,7 @@
 	 transition: transform 0.3s 0.3s;
 }
  .navigation-menu::before {
-	 background: #4e567e;
+	 background: #EB455F;
 	 content: '';
 	 height: 400%;
 	 left: 50%;
@@ -138,7 +142,18 @@
 	 margin: 40px 0;
 	 opacity: 0;
 	 transition: opacity 0.5s 0.5s;
+	 color: #ffffff;
+	 font-family:Georgia, 'Times New Roman', Times, serif;
+	 text-decoration: none;
+          font-size: 23px;
 }
+
+.menu-list__item :visited{
+	color: white;
+  background-color: transparent;
+  text-decoration: none;
+}
+
  @media only screen and (max-width: 700px) {
 	 .navigation-menu {
 		 min-width: 240px;
@@ -150,7 +165,7 @@
 }
  @media only screen and (max-width: 480px) {
 	 .navigation-menu {
-		 background-color: #4e567e;
+		 background-color: #EB455F;
 		 min-width: 240px;
 		 width: 80%;
 	}
@@ -159,6 +174,7 @@
 	}
 }
  
+
 
     .footer {
       padding: 30px;
@@ -169,36 +185,26 @@
     }
   </style>
 
-  <script>
-    (function ($) {
-      $('.js-nav-menu-toggle').on('click', function () {
-        $(this).parents('.navigation-menu').toggleClass('navigation-menu--open');
-      });
 
-      $('html').on('click', function (e) {
-        if (!$(e.target).closest('.js-nav-menu').length &&
-          ($('.js-nav-menu').hasClass('navigation-menu--open'))) {
-          $('.js-nav-menu').removeClass('navigation-menu--open');
-        }
-      });
-    })(jQuery);
-  </script>
+ 
 
 
 </head>
 
 <body>
 
+
+
   <nav class="navigation-menu js-nav-menu">
     <div class="navigation-menu__toggle js-nav-menu-toggle">
       <span class="navigation-menu__bars"></span>
     </div>
     <ul class="menu-list">
-      <li class="menu-list__item">Home page</li>
-      <li class="menu-list__item">Meet the team</li>
-      <li class="menu-list__item">Our projects</li>
-      <li class="menu-list__item">Leaderboard</li>
-      <li class="menu-list__item">Promo</li>
+      <li class="menu-list__item"><a href="index.html"> Home page</li></a>
+      <li class="menu-list__item"><a href="team.html"> Meet the team</li></a>
+      <li class="menu-list__item"><a href="projects.html"> Our projects</li></a>
+      <li class="menu-list__item"><a href="leaderboard.html"> Leaderboard</li></a>
+      <li class="menu-list__item"><a href="promo.html"> Promo</li></a>
     </ul>
   </nav>
 
@@ -220,7 +226,25 @@
   <br>
   <br>
   
-  <div class="footer"
+  
+
+
+  <script>
+    (function ($) {
+      $('.js-nav-menu-toggle').on('click', function () {
+        $(this).parents('.navigation-menu').toggleClass('navigation-menu--open');
+      });
+
+      $('html').on('click', function (e) {
+        if (!$(e.target).closest('.js-nav-menu').length &&
+          ($('.js-nav-menu').hasClass('navigation-menu--open'))) {
+          $('.js-nav-menu').removeClass('navigation-menu--open');
+        }
+      });
+    })(jQuery);
+  </script>
+
+<div class="footer"
     style="font-size: 1vw; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">
     <a href="index.html"><img src="logo.png" alt="logo" style="width:10vw;"></a>
     <p>© 2023 Timeless Studio Games. All Rights Reserved.</p>

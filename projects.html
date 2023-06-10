@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,97 +11,242 @@
     <link rel="icon" type="image/x-icon" href="favicon.jpg">
     <style>
 
-        body{
-          background-color: #171E27;
-          background-image: url(background.png);
-  background-repeat: no-repeat;
-                }
-        
-        
-        /* Add a black background color to the top navigation */
-        .topnav {
-          background-color: #ffffff00;
-          overflow: hidden;
-          list-style-type: none;
-          padding: 62px;
-          width: 100%;
-          display: flex;;
+      @import url(https://fonts.googleapis.com/css?family=Lato:400);
+       * {
+         box-sizing: border-box;
+      }
+       html {
+         font-size: 62.5%;
+      }
+       body {
+         background-size: cover;
+         color: #171e27;
+         font-family: 'Lato', sans-serif;
+         font-size: 2.4rem;
+         height: 100vh;
+      }
+       .navigation-menu__bars, .navigation-menu__bars::before, .navigation-menu__bars::after {
+         cursor: pointer;
+         border-radius: 1px;
+         height: 2px;
+         width: 25px;
+         background: #fff;
+         position: absolute;
+         left: 0;
+         top: 50%;
+         display: block;
+         transition: all 0.3s;
+      }
+       .navigation-menu {
+         background-color: transparent;
+         height: 100%;
+         position: fixed;
+         width: 600px;
+         transform: translateX(-100%);
+         transition: transform 0.3s 0.3s;
+      }
+       .navigation-menu::before {
+         background: #EB455F;
+         content: '';
+         height: 400%;
+         left: 50%;
+         position: absolute;
+         top: 0;
+         transform: translate(-50%, -50%) rotate(40deg);
+         width: 100%;
+         z-index: 0;
+      }
+       .navigation-menu--open {
+         transform: translateX(0);
+      }
+       .navigation-menu--open .navigation-menu__bars {
+         background-color: transparent;
+      }
+       .navigation-menu--open .navigation-menu__bars::before, .navigation-menu--open .navigation-menu__bars::after {
+         top: 0;
+      }
+       .navigation-menu--open .navigation-menu__bars::before {
+         transform: rotate(45deg);
+      }
+       .navigation-menu--open .navigation-menu__bars::after {
+         transform: rotate(-45deg);
+      }
+       .navigation-menu--open .menu-list__item {
+         opacity: 1;
+      }
+       .navigation-menu--open .menu-list__item:nth-child(1) {
+         transition-delay: 1s;
+      }
+       .navigation-menu--open .menu-list__item:nth-child(2) {
+         transition-delay: 1.25s;
+      }
+       .navigation-menu--open .menu-list__item:nth-child(3) {
+         transition-delay: 1.5s;
+      }
+       .navigation-menu--open .menu-list__item:nth-child(4) {
+         transition-delay: 1.75s;
+      }
+       .navigation-menu--open .menu-list__item:nth-child(5) {
+         transition-delay: 2s;
+      }
+       .navigation-menu--open .menu-list__item:nth-child(6) {
+         transition-delay: 2.25s;
+      }
+       .navigation-menu--open .menu-list__item:nth-child(7) {
+         transition-delay: 2.5s;
+      }
+       .navigation-menu--open .menu-list__item:nth-child(8) {
+         transition-delay: 2.75s;
+      }
+       .navigation-menu--open .menu-list__item:nth-child(9) {
+         transition-delay: 3s;
+      }
+       .navigation-menu--open .menu-list__item:nth-child(10) {
+         transition-delay: 3.25s;
+      }
+       .navigation-menu--open .menu-list__item:nth-child(11) {
+         transition-delay: 3.5s;
+      }
+       .navigation-menu--open .menu-list__item:nth-child(12) {
+         transition-delay: 3.75s;
+      }
+       .navigation-menu__toggle {
+         cursor: pointer;
+         height: 30px;
+         position: absolute;
+         right: -40px;
+         top: 5px;
+         width: 30px;
+      }
+       .navigation-menu__bars::before, .navigation-menu__bars::after {
+         content: '';
+      }
+       .navigation-menu__bars::before {
+         left: 0;
+         top: -8px;
+      }
+       .navigation-menu__bars::after {
+         left: 0;
+         top: 8px;
+      }
+       .menu-list {
+         padding: 60px 20px;
+         position: relative;
+         z-index: 10;
+      }
+       .menu-list__item {
+         margin: 40px 0;
+         opacity: 0;
+         transition: opacity 0.5s 0.5s;
+         color: #ffffff;
+         font-family:Georgia, 'Times New Roman', Times, serif;
+         text-decoration: none;
+                font-size: 23px;
+      }
+      
+      .menu-list__item :visited{
+        color: white;
+        background-color: transparent;
+        text-decoration: none;
+      }
+      
+       @media only screen and (max-width: 700px) {
+         .navigation-menu {
+           min-width: 240px;
+           width: 80%;
         }
-        
-        /* Style the links inside the navigation bar */
-        .topnav a {
-          float: left;
-          text-align: center;
-          color: #ffffff;
-          padding: 20px 16px;
-          font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-          text-decoration: none;
-          font-size: 23px;
+         .navigation-menu::before {
+           width: 110%;
         }
-        
-        /* Change the color of links on hover */
-        .topnav a:hover {
-          background-color: #ffffff00;
-          color: rgb(255, 255, 255);
+      }
+       @media only screen and (max-width: 480px) {
+         .navigation-menu {
+           background-color: #EB455F;
+           min-width: 240px;
+           width: 80%;
         }
-        
-        /* Add a color to the active/current link */
-        .topnav a.active {
-          background-color: #ffffff00;
-          color: rgb(64, 255, 255);
+         .navigation-menu::before {
+           transform: translate(-50%, -50%) rotate(45deg);
         }
-        
-        
-        .footer {
-          padding: 30px;
-          width: 100%;
-          background-color: #000000;
-          text-align: center;
-          color: #ffffff;
-        }
-        
+      }
+       
+      
+      
+          .footer {
+            padding: 30px;
+            width: 100%;
+            background-color: #000000;
+            text-align: center;
+            color: #ffffff;
+          }
         </style>
-        </head>
-        
-        <body>
-        
-          <div class="topnav">
-            <div>&nbsp;&nbsp;</div>
-            <a  href="index.html">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Home</a>
-    <div>&nbsp;&nbsp;</div>
-    <a href="team.html">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Team</a>
-    <div>&nbsp;&nbsp;</div>
-    <a class="active" href="projects.html">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Projects</a>
-    <div>&nbsp;&nbsp;</div>
-    <a href="leaderboard.html">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Leaderboard</a>
-
+      
+      
+       
+      
+      
+      </head>
+      
+      <body>
+      
+      
+      
+        <nav class="navigation-menu js-nav-menu">
+          <div class="navigation-menu__toggle js-nav-menu-toggle">
+            <span class="navigation-menu__bars"></span>
           </div>
+          <ul class="menu-list">
+            <li class="menu-list__item"><a href="index.html"> Home page</li></a>
+            <li class="menu-list__item"><a href="team.html"> Meet the team</li></a>
+            <li class="menu-list__item"><a href="projects.html"> Our projects</li></a>
+            <li class="menu-list__item"><a href="leaderboard.html"> Leaderboard</li></a>
+            <li class="menu-list__item"><a href="promo.html"> Promo</li></a>
+          </ul>
+        </nav>
+      
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
         
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <div><img src="bottom.png" width="100%"></div>
-          <div class="footer" style="font-size: 1vw; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">
-            <a href="index.html"><img src="logo.png" alt="logo" style="width:10vw;"></a>
-            <p>© 2023 Timeless Studio Games. All Rights Reserved.</p>
-            
-          </div>
         
-        </body>
-        </html>
+      
+      
+        <script>
+          (function ($) {
+            $('.js-nav-menu-toggle').on('click', function () {
+              $(this).parents('.navigation-menu').toggleClass('navigation-menu--open');
+            });
+      
+            $('html').on('click', function (e) {
+              if (!$(e.target).closest('.js-nav-menu').length &&
+                ($('.js-nav-menu').hasClass('navigation-menu--open'))) {
+                $('.js-nav-menu').removeClass('navigation-menu--open');
+              }
+            });
+          })(jQuery);
+        </script>
+      
+      <div class="footer"
+          style="font-size: 1vw; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">
+          <a href="index.html"><img src="logo.png" alt="logo" style="width:10vw;"></a>
+          <p>© 2023 Timeless Studio Games. All Rights Reserved.</p>
+      
+        </div>
+      
+      </body>
+      
+      </html>
