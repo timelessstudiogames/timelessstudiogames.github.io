@@ -326,6 +326,21 @@
     </ul>
   </nav>
 
+  <script>
+    (function ($) {
+      $('.js-nav-menu-toggle').on('click', function () {
+        $(this).parents('.navigation-menu').toggleClass('navigation-menu--open');
+      });
+
+      $('html').on('click', function (e) {
+        if (!$(e.target).closest('.js-nav-menu').length &&
+          ($('.js-nav-menu').hasClass('navigation-menu--open'))) {
+          $('.js-nav-menu').removeClass('navigation-menu--open');
+        }
+      });
+    })(jQuery);
+  </script>
+
   <img style="margin-left: 5%; vertical-align: middle;" src="logo cover black.png">
   <br>
   <h1 style=" text-align: center; font-size:60px; font-family:Georgia, 'Times New Roman', Times, serif;">Download our stickers:</h1>
@@ -432,22 +447,6 @@
   <br>
   <br>
 
-
-
-  <script>
-    (function ($) {
-      $('.js-nav-menu-toggle').on('click', function () {
-        $(this).parents('.navigation-menu').toggleClass('navigation-menu--open');
-      });
-
-      $('html').on('click', function (e) {
-        if (!$(e.target).closest('.js-nav-menu').length &&
-          ($('.js-nav-menu').hasClass('navigation-menu--open'))) {
-          $('.js-nav-menu').removeClass('navigation-menu--open');
-        }
-      });
-    })(jQuery);
-  </script>
 
 <div class="footer"
     style="font-size: 1vw; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">
