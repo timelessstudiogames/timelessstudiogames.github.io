@@ -14,7 +14,7 @@
   <style>
 
 body{
-  background-color: #e7e7e7;
+  background-color: #ffffff;
 }
 
 @import url(https://fonts.googleapis.com/css?family=Lato:400);
@@ -192,13 +192,18 @@ body{
 	 font-weight: 400;
 }
 
+#myVideo {
+  position:static;
+  right: 0;
+  bottom: 0;
+  min-width: 100%; 
+  min-height: 100%;
+}
 
   </style>
 </head>
 
 <body>
-
-
 
   <nav class="navigation-menu js-nav-menu">
     <div class="navigation-menu__toggle js-nav-menu-toggle">
@@ -212,35 +217,6 @@ body{
       <li class="menu-list__item"><a href="promo.html"> Promo</li></a>
     </ul>
   </nav>
-
-  <img style="margin-left: 5%; vertical-align: middle;" src="logo cover black.png">
-  <br>
-  <h1 style=" text-align: center; font-size:60px; font-family:Georgia, 'Times New Roman', Times, serif;"></h1>
-  
-<br>
-<br> 
-
-
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  
-  
-
 
   <script>
     (function ($) {
@@ -256,6 +232,13 @@ body{
       });
     })(jQuery);
   </script>
+
+<br>
+
+<video autoplay id="myVideo">
+	<source src="video.mp4" type="video/mp4">
+  </video>
+
 
 <div class="footer"
     style="font-size: 1vw; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">
