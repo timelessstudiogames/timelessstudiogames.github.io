@@ -193,7 +193,6 @@ body{
 }
 
 #myVideo {
-  position:static;
   right: 0;
   bottom: 0;
   min-width: 100%; 
@@ -204,7 +203,7 @@ body{
 </head>
 
 <body>
-
+<div>
   <nav class="navigation-menu js-nav-menu">
     <div class="navigation-menu__toggle js-nav-menu-toggle">
       <span class="navigation-menu__bars"></span>
@@ -217,8 +216,18 @@ body{
       <li class="menu-list__item"><a href="promo.html"> Promo</li></a>
     </ul>
   </nav>
+</div>
+  
 
-  <script>
+<br>
+
+<div>
+<video preload="auto" autoplay width="100%" id="myVideo">
+	<source src="video.mp4" type="video/mp4">
+</video>
+</div>
+
+<script>
     (function ($) {
       $('.js-nav-menu-toggle').on('click', function () {
         $(this).parents('.navigation-menu').toggleClass('navigation-menu--open');
@@ -232,12 +241,6 @@ body{
       });
     })(jQuery);
   </script>
-
-<br>
-
-<video autoplay id="myVideo">
-	<source src="video.mp4" type="video/mp4">
-  </video>
 
 
 <div class="footer"
